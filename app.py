@@ -4,7 +4,7 @@ import os
 from services.text_service import text_to_voice
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "Hola_chao_secret_key"
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -20,3 +20,4 @@ def inicio():
 if __name__ == '__main__':
 
     app.run(debug=True)
+
